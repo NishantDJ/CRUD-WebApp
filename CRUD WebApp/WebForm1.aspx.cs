@@ -12,7 +12,7 @@ namespace CRUD_WebApp
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        String CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;    
+        String CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,7 +20,7 @@ namespace CRUD_WebApp
 
         public void databind()
         {
-            using(SqlConnection con = new SqlConnection(CS))
+            using (SqlConnection con = new SqlConnection(CS))
             {
                 SqlCommand cmd = new SqlCommand("sp_getempdetails", con);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -28,19 +28,19 @@ namespace CRUD_WebApp
                 GridView1.DataSource = cmd.ExecuteReader();
                 GridView1.DataBind();
                 con.Close();
-                  
+
             }
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            using(SqlConnection con = new SqlConnection(CS))
+            using (SqlConnection con = new SqlConnection(CS))
             {
-                SqlCommand cmd= new SqlCommand("sp_insertemp", con);
+                SqlCommand cmd = new SqlCommand("sp_insertemp", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@name", txtname.Text);
-                cmd.Parameters.AddWithValue("@gender",DropDownList1.SelectedValue);
+                cmd.Parameters.AddWithValue("@gender", DropDownList1.SelectedValue);
                 cmd.Parameters.AddWithValue("@Date_of_Birth", txtdob.Text);
-                cmd.Parameters.AddWithValue("@hobby",null);
+                cmd.Parameters.AddWithValue("@hobby", null);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -51,11 +51,11 @@ namespace CRUD_WebApp
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string id = ((TextBox)GridView1.Rows[e.RowIndex].Cells[0].FindControl("grdtxtId")).Text;
-                using (SqlConnection con = new SqlConnection(CS))
+            using (SqlConnection con = new SqlConnection(CS))
             {
                 SqlCommand cmd = new SqlCommand("sp_Deleteemp", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id", id);                
+                cmd.Parameters.AddWithValue("@id", id);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -65,7 +65,9 @@ namespace CRUD_WebApp
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
+            GridView1.EditIndex = -1;
+            GridView1.DataBind();
+            databind();
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -106,6 +108,11 @@ namespace CRUD_WebApp
             hobby.Enabled = true;
 
 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            databind();
         }
     }
 }
