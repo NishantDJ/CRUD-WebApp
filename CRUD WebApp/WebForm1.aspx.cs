@@ -82,7 +82,7 @@ namespace CRUD_WebApp
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@gender", gender);
-                cmd.Parameters.AddWithValue("@Date_of_borth", dob);
+                cmd.Parameters.AddWithValue("@Date_of_Birth", dob);
                 cmd.Parameters.AddWithValue("@hobby", hobby);
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -93,14 +93,17 @@ namespace CRUD_WebApp
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            //GridView1.EditIndex = e.NewEditIndex;
-            //TextBox id = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtId");
-            //TextBox name = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtName");
-            //TextBox gender = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtGender");
-            //TextBox dob = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtDOB");
-            //TextBox hobby = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtHobby");
+            GridView1.EditIndex = e.NewEditIndex;
+            TextBox id = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtId");
+            TextBox name = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtName");
+            TextBox gender = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtGender");
+            TextBox dob = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtDOB");
+            TextBox hobby = (TextBox)GridView1.Rows[e.NewEditIndex].Cells[0].FindControl("grdtxtHobby");
 
-            //id.Enabled = false;
+            name.Enabled = true;
+            gender.Enabled = true;
+            dob.Enabled = true;
+            hobby.Enabled = true;
 
 
         }

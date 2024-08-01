@@ -65,27 +65,27 @@
             <Columns>
                 <asp:TemplateField HeaderText="ID">
                     <ItemTemplate>
-                        <asp:TextBox ID="grdtxtId" Text='<%#Eval("Id") %>' runat="server"></asp:TextBox>
+                        <asp:TextBox ID="grdtxtId" Text='<%#Eval("Id") %>' runat="server" Enabled="false"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Name">
                     <ItemTemplate>
-                        <asp:TextBox ID="grdtxtName" Text='<%#Eval("Name") %>' runat="server"></asp:TextBox>
+                        <asp:TextBox ID="grdtxtName" Text='<%#Eval("Name") %>' runat="server" Enabled="false"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Gender">
                     <ItemTemplate>
-                        <asp:TextBox  ID="grdtxtGender" Text='<%#Eval("Gender") %>' runat="server"></asp:TextBox>
+                        <asp:TextBox  ID="grdtxtGender" Text='<%#Eval("Gender") %>' runat="server" Enabled="false"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Date of Birth">
                     <ItemTemplate>
-                        <asp:TextBox ID="grdtxtDOB" Text='<%#Eval("Date_of_Birth") %>' runat="server"></asp:TextBox>
+                        <asp:TextBox ID="grdtxtDOB" Text='<%#Eval("Date_of_Birth") %>' runat="server" Enabled="false"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Hobby">
                     <ItemTemplate>
-                        <asp:TextBox ID="grdtxtHobby" Text='<%#Eval("Hobby") %>' runat="server"></asp:TextBox>
+                        <asp:TextBox ID="grdtxtHobby" Text='<%#Eval("Hobby") %>' runat="server" Enabled="false"></asp:TextBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:CommandField ShowEditButton="true" ShowDeleteButton="true" />
